@@ -4,6 +4,8 @@ export default function categories(state = null, action) {
     return {
       loading: true,
       list: [],
+      removeCategoryConfirmationOpened: false,
+      removableCategory: null,
     };
   }
 
@@ -13,7 +15,14 @@ export default function categories(state = null, action) {
       return {
         ...state,
         loading: false,
-        list: action.payload.data
+        list: action.payload.data,
+      };
+
+    case 'REMOVE_CATEGORY_CONFIRMATION_TOGGLED':
+      return {
+        ...state,
+        removeCategoryConfirmationOpened: !state.removeCategoryConfirmationOpened,
+        removableCategory: action.category,
       };
 
     default:

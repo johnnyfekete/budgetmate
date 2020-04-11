@@ -9,9 +9,11 @@ module.exports = {
 
       transparent: 'transparent',
       gray: '#cccccc',
+      'light-gray': '#efefef',
       white: '#ffffff',
       'transparent-white': 'rgba(255, 255, 255, 0.3)',
       black: '#000000',
+      'transparent-black': 'rgba(0, 0, 0, 0.5)',
       'text-color': '#090909',
       'link-color': '#62466f',
       background: '#f4f4f4',
@@ -24,5 +26,7 @@ module.exports = {
       body: ['Roboto Slab', 'sans-serif'],
     },
   },
-  variants: {},
+  variants: {
+    opacity: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
+  },
 };

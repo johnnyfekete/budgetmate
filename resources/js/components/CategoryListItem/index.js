@@ -1,6 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { updateCategory } from '../../actions/categories';
+import {
+  updateCategory,
+  toggleRemoveCategoryConfirmation,
+} from '../../actions/categories';
+
+const removeIcon = require('../../../img/remove.svg');
 
 const CategoryListItem = ({ category }) => {
   const [editing, updateEditing] = useState(false);
@@ -16,7 +21,7 @@ const CategoryListItem = ({ category }) => {
 
   return (
     <li
-      className="block font-display border-b border-solid border-gray h-8"
+      className="group block font-display border-b border-solid border-gray h-8"
       onClick={() => {
         updateEditing(true);
       }}
@@ -34,7 +39,18 @@ const CategoryListItem = ({ category }) => {
           className="h-8 w-full border-b border-solid border-gray px-1"
         />
       ) : (
-        <div className="px-1 flex h-8 items-center">{name}</div>
+        <div className="px-1 flex h-8 items-center">
+          <span>{name}</span>
+          <img
+            className="opacity-0 group-hover:opacity-100 ml-auto transition duration-500 ease-in-out cursor-pointer"
+            src={removeIcon}
+            alt="Remove category"
+            onClick={e => {
+              e.stopPropagation();
+              dispatch(toggleRemoveCategoryConfirmation(category));
+            }}
+          />
+        </div>
       )}
     </li>
   );

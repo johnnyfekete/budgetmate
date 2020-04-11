@@ -26,3 +26,21 @@ export function updateCategory(id, data) {
     });
   };
 }
+
+// Toggle remove category confirmation
+export function toggleRemoveCategoryConfirmation(category = null) {
+  return { type: 'REMOVE_CATEGORY_CONFIRMATION_TOGGLED', category };
+}
+
+// Remove category
+export function removeCategory() {
+  return (dispatch, getState) => {
+    const category = getState().categories.removableCategory;
+    dispatch(toggleRemoveCategoryConfirmation());
+
+    axios.delete(`/api/categories/${category.id}`).then(response => {
+      dispatch({ type: 'CATEGORY_REMOVED' });
+      dispatch(fetchCategories());
+    });
+  };
+}
