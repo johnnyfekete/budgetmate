@@ -23,11 +23,25 @@ const CategoryList = () => {
   if (loading) return <div>Loading</div>;
 
   return (
-    <div className="w-64 category-list">
-      <h2 className="font-display text-lg mt-10">Categories</h2>
+    <div className="w-full category-list">
+      <h2 className="font-display text-lg mt-10 font-bold">Categories</h2>
       <ul className="mt-8">
-        {list.map(category => (
-          <CategoryListItem category={category} key={category.id} />
+        <li className="flex">
+          <div className="w-64"></div>
+
+          <div className="planned-header w-32 px-2 pt-2 bg-papaya rounded-t text-center">
+            Planned
+            <div className="w-auto h-2 mx-2 border-solid border-gray border-b" />
+          </div>
+
+          <div className="actual-header ml-2 w-32 px-2 pt-2 bg-blue text-white rounded-t text-center">
+            Actual
+            <div className="w-auto h-2 mx-2 border-solid border-gray border-b" />
+          </div>
+        </li>
+
+        {list.map((category, index) => (
+          <CategoryListItem category={category} key={category.id} index={index} />
         ))}
       </ul>
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Category;
+use Carbon\Carbon;
 
 class CategoryController extends Controller
 {
@@ -17,7 +18,13 @@ class CategoryController extends Controller
     {
         $user = User::find(1);
 
-        return $user->categories()->orderBy('sequence', 'asc')->get();
+        return $user
+            ->categories()
+            ->with(['monthly_budgets'  => function ($query) {
+                $query->where('month', '=', (new Carbon('first day of this month'))->format('Y-m-d'));
+            }])
+            ->orderBy('sequence', 'asc')
+            ->get();
     }
 
     /**

@@ -14,4 +14,12 @@ class Category extends Model
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
     protected $hidden = ['created_at', 'updated_at', 'deleted_at', 'user_id'];
+
+    /**
+     * Relations
+     */
+    public function monthly_budgets()
+    {
+        return $this->hasMany(MonthlyBudgetForCategory::class);
+    }
 }
