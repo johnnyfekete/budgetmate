@@ -8,6 +8,7 @@ module.exports = {
       papaya: '#fff1d0',
 
       transparent: 'transparent',
+      gray: '#cccccc',
       white: '#ffffff',
       'transparent-white': 'rgba(255, 255, 255, 0.3)',
       black: '#000000',

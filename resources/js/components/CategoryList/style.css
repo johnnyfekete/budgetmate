@@ -1,0 +1,7 @@
+.category-list .category-add {
+    opacity: 0;
+}
+
+.category-list:hover .category-add {
+    opacity: 1;
+}

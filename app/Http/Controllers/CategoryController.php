@@ -29,14 +29,11 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $user = User::find(1);
-        $request->validate([
-            'name' => 'required|string'
-        ]);
 
         $largestSequence = $user->categories()->max('sequence');
 
         $category = Category::create([
-            'name' => $request->input('name'),
+            'name' => '',
             'user_id' => $user->id,
             'sequence' => $largestSequence + 1
         ]);
@@ -69,10 +66,7 @@ class CategoryController extends Controller
             'sequence' => 'integer'
         ]);
 
-        $category->update([
-            'name' => $request->input('name'),
-            'sequence' => $request->input('sequence')
-        ]);
+        $category->update($request->only(['name', 'sequence']));
 
         return $category;
     }

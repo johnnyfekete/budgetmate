@@ -20,9 +20,9 @@ import Routes from './routes';
 import store from './store';
 
 const createStoreWithMiddleware =
-  process.env.MIX_REACT_APP_DEBUG === 'true'
-    ? applyMiddleware(promise, thunk, logger)(createStore)
-    : applyMiddleware(promise, thunk)(createStore);
+process.env.MIX_REACT_APP_DEBUG === 'true'
+  ? applyMiddleware(promise, thunk, logger)(createStore)
+  : applyMiddleware(promise, thunk)(createStore);
 
 // Axios
 axios.defaults.headers.common['Content-Type'] = 'application/json';
