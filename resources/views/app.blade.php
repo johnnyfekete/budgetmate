@@ -11,7 +11,7 @@
         <!-- Styles -->
         <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     </head>
-    <body>
+    <body class="bg-background">
         <div id="root"></div>
 
         <script src="{{ mix('js/app.js') }}"></script>

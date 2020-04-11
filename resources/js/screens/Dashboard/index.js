@@ -1,8 +1,11 @@
 import React from 'react';
+import Sidebar from '../../components/Sidebar';
 
 const Dashboard = () => (
-  <div>
-    Dashboard
+  <div className="flex">
+    <Sidebar active="dashboard" />
+
+    <div>Dashboard</div>
   </div>
 );
 
