@@ -13,7 +13,7 @@
         "@babel/plugin-proposal-class-properties": "^7.8.3",
         "@babel/plugin-syntax-dynamic-import": "^7.8.3",
         "@juggle/resize-observer": "^3.0.2",
-        "axios": "^0.18.1",
+        "axios": "^0.21.1",
         "axios-hooks": "^1.9.0",
         "chart.js": "^2.9.3",
         "history": "^4.10.1",
